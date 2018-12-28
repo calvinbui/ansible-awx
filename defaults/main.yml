@@ -1,0 +1,9 @@
+---
+
+awx_repo_directory: "~/awx"
+awx_version: 2.1.2
+awx_update_repo: true
+
+awx_vars:
+  postgres_data_dir: /var/lib/postgresql/data
+  use_docker_compose: false

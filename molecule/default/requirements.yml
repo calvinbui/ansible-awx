@@ -1,0 +1,6 @@
+---
+
+- src: calvinbui.ansible_git
+- src: calvinbui.ansible_pip
+- src: calvinbui.ansible_nodejs
+- src: calvinbui.ansible_docker

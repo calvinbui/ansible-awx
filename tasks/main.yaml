@@ -1,0 +1,35 @@
+---
+
+# Based on https://docs.docker.com/engine/installation/linux/ubuntu/
+
+- name: Install dependencies via apt
+  apt:
+    name:
+      - build-essential
+    state: present
+  register: result
+  until: result is success
+  retries: 5
+  delay: 5
+
+- name: Create Postgres data directory
+  file:
+    path: "{{ awx_vars.postgres_data_dir }}"
+    state: directory
+  when: awx_vars.postgres_data_dir is defined
+
+- name: Clone AWX
+  git:
+    repo: https://github.com/ansible/awx
+    dest: "{{ awx_repo_directory }}"
+    update: "{{ awx_update_repo }}"
+    version: "{{ awx_version }}"
+    accept_hostkey: true
+    force: true
+
+- name: Run the AWX installation playbook.
+  command: "ansible-playbook -i inventory install.yml {{ '-e \"' + awx_vars|to_json + '\"' if awx_vars else '' }}"
+  args:
+    chdir: "{{ awx_repo_directory }}/installer"
+  register: result
+  changed_when: '"changed=0" not in result.stdout'
