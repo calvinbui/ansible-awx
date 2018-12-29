@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/calvinbui/ansible-awx.svg?branch=master)](https://travis-ci.com/calvinbui/ansible-awx)
+
 # Ansible AWX
 
 Install AWX on Ubuntu via [Docker](https://github.com/ansible/awx/blob/devel/INSTALL.md#docker-or-docker-compose). This role expects dependencies to be installed already such as Docker, pip, nodejs and git.
