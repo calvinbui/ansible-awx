@@ -12,6 +12,8 @@ platforms:
       - /var/run/docker.sock:/var/run/docker.sock
 provisioner:
   name: ansible
+  options:
+    v: true
   lint:
     name: ansible-lint
   playbooks:
