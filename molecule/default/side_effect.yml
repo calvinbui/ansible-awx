@@ -1,0 +1,16 @@
+---
+
+- name: Side Effect
+  hosts: all
+  become: true
+  tasks:
+    - name: Stop AWX containers
+      docker_container:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - awx_task
+        - awx_web
+        - postgres
+        - memcached
+        - rabbitmq

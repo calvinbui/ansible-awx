@@ -17,6 +17,7 @@ provisioner:
   playbooks:
     prepare: prepare.yml
     converge: playbook.yml
+    side_effect: side_effect.yml
 scenario:
   name: default
 verifier:
