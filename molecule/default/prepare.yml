@@ -5,8 +5,8 @@
   vars:
     git_config: []
     pip_install_packages:
-      - docker
-      - ansible
+      - name: docker
+      - name: ansible
     nodejs_version: 8
     nodejs_install_packages: []
   pre_tasks:
