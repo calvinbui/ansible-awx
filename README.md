@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.com/calvinbui/ansible-awx.svg?branch=master)](https://travis-ci.com/calvinbui/ansible-awx)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/35898.svg)
+![Ansible Role](https://img.shields.io/ansible/role/d/35898.svg)
 
 # Ansible AWX
 
