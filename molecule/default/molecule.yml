@@ -7,9 +7,17 @@ lint:
   name: yamllint
 platforms:
   - name: ansible-awx
-    image: ubuntu:${UBUNTU_IMAGE_TAG:-latest}
+    image: geerlingguy/docker-ubuntu1804-ansible
     volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
       - /var/run/docker.sock:/var/run/docker.sock
+    privileged: true
+    pre_build_image: true
+    cap_add:
+      - SYS_ADMIN
+    tmpfs:
+      - /run
+      - /run/lock
 provisioner:
   name: ansible
   options:
