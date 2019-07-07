@@ -8,16 +8,12 @@ lint:
 platforms:
   - name: ansible-awx
     image: geerlingguy/docker-ubuntu1804-ansible
+    command: ""
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
       - /var/run/docker.sock:/var/run/docker.sock
     privileged: true
     pre_build_image: true
-    cap_add:
-      - SYS_ADMIN
-    tmpfs:
-      - /run
-      - /run/lock
 provisioner:
   name: ansible
   options:
