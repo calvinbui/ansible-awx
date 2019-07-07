@@ -3,6 +3,8 @@
 - name: Side Effect
   hosts: all
   become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Stop AWX containers
       docker_container:
